@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BackApiService } from '../../services/back-api.service';
+import { PhaseModel } from '../../models/PhaseModel';
 
 @Component({
   selector: 'app-phases',
@@ -14,7 +15,7 @@ export class PhasesComponent implements OnInit {
   @Input() title: string = '';
   @Input() numberPhases: number = 10;
 
-  public database: string = 'init';
+  listPhases: PhaseModel[] = [];
 
   // *****************************************************************************************************************
   // CONSTRUCTOR
@@ -27,10 +28,10 @@ export class PhasesComponent implements OnInit {
   // *****************************************************************************************************************
 
   ngOnInit(): void {
-    console.log('ngOnInit');
-    this.backend.fetchPhases(this.numberPhases).subscribe((phases) => {
-      console.log(phases);
-      this.database = phases as string;
+    this.backend.fetchPhases(this.numberPhases).subscribe((response) => {
+      console.log(response);
+      this.listPhases = response.phases;
+      // this.database = phases;
     });
   }
 }

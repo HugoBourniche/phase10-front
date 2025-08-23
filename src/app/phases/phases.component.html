@@ -1,4 +1,7 @@
 <div class="phases-container">
   <div class="title">{{ title }}</div>
-  <div>{{ database }}</div>
+
+  <div *ngFor="let phase of listPhases">
+    {{ phase.parts }}
+  </div>
 </div>
