@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BackApiService } from '../../services/back-api.service';
-import { PhaseModel } from '../../models/PhaseModel';
+import { BackApiService } from '../../../services/back-api.service';
+import { PhaseModel } from '../../../models/PhaseModel';
 
 @Component({
   selector: 'app-phases',

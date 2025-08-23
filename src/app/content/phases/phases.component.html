@@ -1,0 +1,7 @@
+<div class="phases-container">
+  <div class="title">{{ title }}</div>
+
+  <div *ngFor="let phase of listPhases; index as i">
+    <app-phase [index]="i" [phase]="phase"></app-phase>
+  </div>
+</div>
