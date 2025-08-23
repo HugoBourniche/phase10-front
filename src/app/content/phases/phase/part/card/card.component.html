@@ -1,4 +1,5 @@
 <div class="container">
-  <div>{{ card.color }}</div>
-  <div>{{ card.number }}</div>
+  <div class="card {{card.color + '-color' }}">
+    <div *ngIf="card.number != 'NONE'">{{ card.number }}</div>
+  </div>
 </div>
