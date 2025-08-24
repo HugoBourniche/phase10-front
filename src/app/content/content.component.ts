@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PhasesComponent } from './phases/phases.component';
 
 @Component({
   selector: 'app-content',
@@ -12,6 +13,12 @@ export class ContentComponent implements OnInit {
 
   selectedMenu: number = 0;
 
+  customSeed: string = '';
+  customNumberPhases: number = 10;
+  validatedForm: boolean = false;
+
+  @ViewChild('customPhases') customPhases!: PhasesComponent;
+
   // *****************************************************************************************************************
   // CONSTRUCTOR
   // *****************************************************************************************************************
@@ -23,4 +30,13 @@ export class ContentComponent implements OnInit {
   // *****************************************************************************************************************
 
   ngOnInit(): void {}
+
+  // *****************************************************************************************************************
+  // EVENT METHODS
+  // *****************************************************************************************************************
+
+  onValidateForm(): void {
+    this.validatedForm = true;
+    this.customPhases.triggerFetchPhase();
+  }
 }

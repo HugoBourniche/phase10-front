@@ -13,6 +13,7 @@ import { PhaseComponent } from './content/phases/phase/phase.component';
 import { PartComponent } from './content/phases/phase/part/part.component';
 import { CardComponent } from './content/phases/phase/part/card/card.component';
 import { MenuComponent } from './content/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,13 @@ import { MenuComponent } from './content/menu/menu.component';
     CardComponent,
     MenuComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule,
+  ],
   providers: [BackApiService],
   bootstrap: [AppComponent],
 })

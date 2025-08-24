@@ -8,6 +8,16 @@
     <app-phases [seed]="'default'"></app-phases>
   </ng-container>
   <ng-container *ngIf="selectedMenu == 2">
-    <app-phases [seed]="''"></app-phases>
+    <div class="container form-container">
+      <input type="text" [(ngModel)]="customSeed" />
+      <input type="number" [(ngModel)]="customNumberPhases" min="1" max="30" />
+      <button (click)="onValidateForm()">Valider</button>
+    </div>
+    <app-phases
+      #customPhases
+      *ngIf="validatedForm"
+      [seed]="customSeed"
+      [numberPhases]="customNumberPhases"
+    ></app-phases>
   </ng-container>
 </div>
