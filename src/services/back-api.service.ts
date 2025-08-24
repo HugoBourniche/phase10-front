@@ -18,9 +18,17 @@ export class BackApiService {
   // FETCH FROM PHASES BACKEND
   // *****************************************************************************************************************
 
-  public fetchPhases(numberPhases: number): Observable<PhasesResponse> {
+  public fetchPhases(
+    numberPhases: number,
+    seed: string | null,
+  ): Observable<PhasesResponse> {
+    const params = { numberPhases: numberPhases };
+    if (seed !== null) {
+      // @ts-ignore // seed is not null
+      params['seed'] = seed;
+    }
     return this.httpClient.get<PhasesResponse>(FETCH_PHASES_URL, {
-      params: { numberPhases: numberPhases },
+      params: params,
     });
   }
 }

@@ -1,39 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BackApiService } from '../../../services/back-api.service';
-import { PhaseModel } from '../../../models/PhaseModel';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-phases',
-  templateUrl: './phases.component.html',
-  styleUrls: ['./phases.component.less'],
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.less'],
 })
-export class PhasesComponent implements OnInit {
+export class MenuComponent implements OnInit {
   // *****************************************************************************************************************
   // VARIABLES
   // *****************************************************************************************************************
 
-  @Input() seed: string = '';
-  @Input() numberPhases: number = 10;
-
-  listPhases: PhaseModel[] = [];
+  @Input() selectedMenu: number = 0;
+  @Output() selectedMenuChange = new EventEmitter<number>();
 
   // *****************************************************************************************************************
   // CONSTRUCTOR
   // *****************************************************************************************************************
 
-  constructor(private backend: BackApiService) {}
+  constructor() {}
 
   // *****************************************************************************************************************
   // ANGULAR LIFE CYCLE
   // *****************************************************************************************************************
 
-  ngOnInit(): void {
-    let seed: string | null = this.seed;
-    if (this.seed === '') {
-      seed = null;
-    }
-    this.backend.fetchPhases(this.numberPhases, seed).subscribe((response) => {
-      this.listPhases = response.phases;
-    });
+  ngOnInit(): void {}
+
+  // *****************************************************************************************************************
+  // HTML EVENTS
+  // *****************************************************************************************************************
+
+  onMenuClick(index: number): void {
+    this.selectedMenu = index;
+    this.selectedMenuChange.emit(this.selectedMenu);
   }
 }

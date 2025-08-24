@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PhaseComponent } from './content/phases/phase/phase.component';
 import { PartComponent } from './content/phases/phase/part/part.component';
 import { CardComponent } from './content/phases/phase/part/card/card.component';
+import { MenuComponent } from './content/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CardComponent } from './content/phases/phase/part/card/card.component';
     PhaseComponent,
     PartComponent,
     CardComponent,
+    MenuComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [BackApiService],
