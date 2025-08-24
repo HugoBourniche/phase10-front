@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PhasesComponent } from './phases/phases.component';
+import {
+  LOCALSTORAGE_KEY_NUMBER_PHASES,
+  LOCALSTORAGE_KEY_SEED,
+  LOCALSTORAGE_KEY_SELECTED_MENU,
+} from '../../utils/constants';
 
 @Component({
   selector: 'app-content',
@@ -29,7 +34,23 @@ export class ContentComponent implements OnInit {
   // ANGULAR LIFE CYCLE
   // *****************************************************************************************************************
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const customSeed = localStorage.getItem(LOCALSTORAGE_KEY_SEED);
+    if (customSeed) {
+      this.customSeed = customSeed;
+      this.validatedForm = true;
+    }
+    const customNumberPhases = localStorage.getItem(
+      LOCALSTORAGE_KEY_NUMBER_PHASES,
+    );
+    if (customNumberPhases) {
+      this.customNumberPhases = +customNumberPhases;
+    }
+    const selectedMenu = localStorage.getItem(LOCALSTORAGE_KEY_SELECTED_MENU);
+    if (selectedMenu) {
+      this.selectedMenu = +selectedMenu;
+    }
+  }
 
   // *****************************************************************************************************************
   // EVENT METHODS
@@ -37,6 +58,11 @@ export class ContentComponent implements OnInit {
 
   onValidateForm(): void {
     this.validatedForm = true;
+    localStorage.setItem(LOCALSTORAGE_KEY_SEED, this.customSeed);
+    localStorage.setItem(
+      LOCALSTORAGE_KEY_NUMBER_PHASES,
+      String(this.customNumberPhases),
+    );
     this.customPhases.triggerFetchPhase();
   }
 }

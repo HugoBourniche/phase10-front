@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LOCALSTORAGE_KEY_SELECTED_MENU } from '../../../utils/constants';
 
 @Component({
   selector: 'app-menu',
@@ -32,5 +33,9 @@ export class MenuComponent implements OnInit {
   onMenuClick(index: number): void {
     this.selectedMenu = index;
     this.selectedMenuChange.emit(this.selectedMenu);
+    localStorage.setItem(
+      LOCALSTORAGE_KEY_SELECTED_MENU,
+      String(this.selectedMenu),
+    );
   }
 }
