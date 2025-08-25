@@ -8,18 +8,21 @@
     <app-phases [seed]="'default'"></app-phases>
   </ng-container>
   <ng-container *ngIf="selectedMenu == 2">
+    <div class="container message-container">
+      Saisis un mot-clé et un nombre d'étapes. Valider pour générer des étapes.
+    </div>
     <div class="container form-container mt-2">
       <input
         class="w-40"
         type="text"
         [(ngModel)]="customSeed"
-        placeholder="Entrer des mots clés"
+        placeholder="Un mot clé ici"
       />
       <input
         class="w-15"
         type="number"
         [(ngModel)]="customNumberPhases"
-        placeholder="Phases"
+        placeholder="étapes"
         min="1"
         max="30"
       />
