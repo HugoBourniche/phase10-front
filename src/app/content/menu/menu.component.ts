@@ -1,0 +1,41 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LOCALSTORAGE_KEY_SELECTED_MENU } from '../../../utils/constants';
+
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.less'],
+})
+export class MenuComponent implements OnInit {
+  // *****************************************************************************************************************
+  // VARIABLES
+  // *****************************************************************************************************************
+
+  @Input() selectedMenu: number = 0;
+  @Output() selectedMenuChange = new EventEmitter<number>();
+
+  // *****************************************************************************************************************
+  // CONSTRUCTOR
+  // *****************************************************************************************************************
+
+  constructor() {}
+
+  // *****************************************************************************************************************
+  // ANGULAR LIFE CYCLE
+  // *****************************************************************************************************************
+
+  ngOnInit(): void {}
+
+  // *****************************************************************************************************************
+  // HTML EVENTS
+  // *****************************************************************************************************************
+
+  onMenuClick(index: number): void {
+    this.selectedMenu = index;
+    this.selectedMenuChange.emit(this.selectedMenu);
+    localStorage.setItem(
+      LOCALSTORAGE_KEY_SELECTED_MENU,
+      String(this.selectedMenu),
+    );
+  }
+}

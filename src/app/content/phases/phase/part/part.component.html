@@ -1,8 +1,6 @@
 <div class="card-container container">
-  <div *ngFor="let card of part.cards"
-    class="{{part.phaseType}}-type"
-  >
+  <div *ngFor="let card of part.cards" class="{{ part.phaseType }}-type">
     <app-card [card]="card"></app-card>
   </div>
-  <div class="{{part.phaseType}}-type count">{{part.cards.length}}</div>
+  <div class="{{ part.phaseType }}-type count">{{ part.cards.length }}</div>
 </div>

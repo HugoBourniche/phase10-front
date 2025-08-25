@@ -5,3 +5,30 @@
   font-size: @font-size-title;
   text-align: center;
 }
+
+.message-container {
+  text-align: center;
+  font-style: italic;
+  border-radius: @container-border-radius;
+  padding: @padding-default;
+  color: gray;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-right: 0;
+  padding-left: 0;
+
+  & input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  & button {
+    border-radius: @button-border-radius;
+    background-color: @color-wild;
+    color: @color-yellow;
+  }
+}

@@ -1,0 +1,28 @@
+@import "~src/assets/style/variables.less";
+
+.menu-container {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: @color-wild solid 1px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  font-weight: @menu-weight;
+  padding-bottom: 6px;
+  border: none;
+  background-color: @color-white;
+
+  &:hover {
+    font-weight: @menu-weight-hover;
+  }
+}
+
+.selected {
+  border-bottom: @color-wild solid 1px;
+}

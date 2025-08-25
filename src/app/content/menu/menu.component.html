@@ -1,0 +1,23 @@
+<div class="container menu-container">
+  <button
+    [class.selected]="selectedMenu == 0"
+    class="menu-item"
+    (click)="onMenuClick(0)"
+  >
+    Étapes du jour
+  </button>
+  <button
+    [class.selected]="selectedMenu == 1"
+    class="menu-item"
+    (click)="onMenuClick(1)"
+  >
+    Étapes de base
+  </button>
+  <button
+    [class.selected]="selectedMenu == 2"
+    class="menu-item"
+    (click)="onMenuClick(2)"
+  >
+    Étapes personalisées
+  </button>
+</div>
